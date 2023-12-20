@@ -3,7 +3,6 @@ import os
 import subprocess
 import appdirs
 
-
 blueprint = "ffmpeg {input_args} -i \"{input_file}\" {output_args} \"{output_file}\""
 h264_codec = "-c:v libx264 -profile:v high -crf {crf} -preset veryslow -pix_fmt yuv420p -level 4.1 -an -movflags +faststart"
 hqx_codec = "-c:v dnxhd -profile:v dnxhr_hqx -pix_fmt yuv422p10le -an -movflags +faststart"

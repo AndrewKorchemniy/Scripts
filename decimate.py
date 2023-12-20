@@ -2,12 +2,14 @@ import os
 import click
 import subprocess
 
+
 @click.command()
 @click.argument('input_file_path', type=click.Path(exists=True))
 def decimate(input_file_path):
+    """Removes duplicate frames from videos using decimate from ffmpeg."""
     name = os.path.splitext(input_file_path)[0]
     output_file = f"{name}-decimated.mov"
-    
+
     cmd = [
         'ffmpeg',
         '-i', input_file_path,
@@ -23,6 +25,7 @@ def decimate(input_file_path):
         print(f"Decimation complete. Output file: {output_file}")
     except subprocess.CalledProcessError as e:
         print(f"Error during decimation:\n{e}")
+
 
 if __name__ == '__main__':
     decimate()
